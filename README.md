@@ -14,7 +14,7 @@ In a terminal run:
 
 #### 2. Clone the Repository
 The simplest way to clone the repo is using VSCode, in the IDE on the "welcome" page there is an option to "Clone Git Repository",
-Click it and then paste in the link for the repo: `https://github.com/joshshipton/Prof_comp.git`, then you'll be prompted to sign into you github account.
+Click it and then paste in the link for the repo: `https://github.com/sibi12325/CITS3005-Project.git`, then you'll be prompted to sign into you github account.
 
 #### 3. Create and Activate Your Virtual Environment with venv
  1. Run `python3 -m venv venv` in the terminal to create your virtual environment. 
