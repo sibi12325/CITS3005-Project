@@ -1,0 +1,10 @@
+/* Navigation Links */
+.navbar-nav > a {
+  font-size: large;
+}
+
+/* Page Layout */
+.content {
+  padding-top: 1em;
+  min-height: calc(79vh - 1rem);
+}
