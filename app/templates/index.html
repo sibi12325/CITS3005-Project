@@ -3,17 +3,23 @@
 {% block content %}
 
 {% if graph %}
-<h2>{{ graph | safe}}</h2>
+<div style="text-align: center;">
+    <p2>{{ graph | safe}}</p2>
+</div>
 {% endif %}
 
-<h1>Query</h1>
+<div style="padding-top: 5%; padding-bottom: 5%;">
+    <h1 style="text-align: center; padding-bottom: 1%;">Query</h1>
+    <form action="/query" method="post">
+        <div class="form-group">
+        <input type="text" class="form-control" id="query" name="query" aria-describedby="form-text" placeholder="Enter query">
+        </div>
+        <div style="padding-top: 1%; text-align: center;">
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+    </form>
+</div>
 
-<form action="/query" method="post">
-    <div class="form-group">
-      <label for="query">Enter query</label>
-      <input type="text" class="form-control" id="query" name="query" aria-describedby="form-text" placeholder="Enter query">
-    </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
-</form>
+<h3>{{ result}}</h3>
 
 {% endblock %}
