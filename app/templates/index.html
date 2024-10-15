@@ -8,7 +8,7 @@
 </div>
 {% endif %}
 
-<div style="padding-top: 5%; padding-bottom: 5%;">
+<div style="padding-top: 5%">
     <h1 style="text-align: center; padding-bottom: 1%;">Query</h1>
     <form action="/query" method="post">
         <div class="form-group">
@@ -20,6 +20,42 @@
     </form>
 </div>
 
-<h3>{{ result}}</h3>
+<div style="padding-top: 5%; padding-bottom: 5%; width: 33%; display: inline-block;">
+    <h1 style="text-align: center; padding-bottom: 1%;">Add to Graph</h1>
+    <form action="/add" method="post">
+        <div class="form-group">
+        <input type="text" class="form-control" id="add" name="add" aria-describedby="form-text" placeholder="Add to Graph">
+        </div>
+        <div style="padding-top: 1%; text-align: center;">
+            <button type="submit" class="btn btn-primary">Add</button>
+        </div>
+    </form>
+</div>
+
+<div style="padding-top: 5%; padding-bottom: 5%;text-align: center; width: 33%; display: inline-block;">
+    <h1 style="text-align: center; padding-bottom: 1%;">Remove from Graph</h1>
+    <form action="/remove" method="post">
+        <div class="form-group">
+        <input type="text" class="form-control" id="remove" name="remove" aria-describedby="form-text" placeholder="Remove from Graph">
+        </div>
+        <div style="padding-top: 1%; text-align: center;">
+            <button type="submit" class="btn btn-primary">Remove</button>
+        </div>
+    </form>
+</div>
+
+<div style="padding-top: 5%; padding-bottom: 5%; text-align: right; width: 33%; display: inline-block;">
+    <h1 style="text-align: center; padding-bottom: 1%;">Update Graph</h1>
+    <form action="/update" method="post">
+        <div class="form-group">
+        <input type="text" class="form-control" id="update" name="update" aria-describedby="form-text" placeholder="Update Graph">
+        </div>
+        <div style="padding-top: 1%; text-align: center;">
+            <button type="submit" class="btn btn-primary">Update</button>
+        </div>
+    </form>
+</div>
+
+<h3 style="text-align: center;">{{ result}}</h3>
 
 {% endblock %}

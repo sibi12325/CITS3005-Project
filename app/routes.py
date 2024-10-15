@@ -10,6 +10,31 @@ def index():
 @app.route('/query', methods=['POST'])
 def query():
 	query_input = request.form.get('query')
-	result = g.query(f"""{query_input}""")
-	result = result.serialize()
+	if query_input == "":
+		result = "Enter details before submitting"
+	else:
+		try:
+			result = g.query(f"""{query_input}""")
+			result = result.serialize(format="csv")
+			result = result.decode("utf-8")  # Decode from bytes to string
+		except:
+			result = "Query is not valid"
+	return render_template('index.html', graph=query_input, result=result)
+
+@app.route('/add', methods=['POST'])
+def add():
+	query_input = request.form.get('add')
+	result = "Add doesnt work yet"
+	return render_template('index.html', graph=query_input, result=result)
+
+@app.route('/remove', methods=['POST'])
+def remove():
+	query_input = request.form.get('remove')
+	result = "Remove doesnt work yet"
+	return render_template('index.html', graph=query_input, result=result)
+
+@app.route('/update', methods=['POST'])
+def update():
+	query_input = request.form.get('update')
+	result = "Update doesnt work yet"
 	return render_template('index.html', graph=query_input, result=result)
