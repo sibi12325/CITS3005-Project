@@ -80,3 +80,5 @@ for filename in os.listdir(os.getcwd()):
 
     # Save the ontology to an OWL file
     onto.save(file=f"{filename.split('.')[0]}.owl", format="rdfxml")
+
+    
