@@ -71,7 +71,7 @@ for filename in os.listdir(os.getcwd()):
                         step.uses_tool.append(tool_instance)
 
     os.chdir('..')
-    os.chdir('ontology')
+    os.chdir('knowledge_graphs')
 
     # Save the ontology to an OWL file
     onto.save(file=f"{filename.split('.')[0]}.owl", format="rdfxml")
