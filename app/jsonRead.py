@@ -18,6 +18,11 @@ os.chdir('dataset')
 #     corrected_file.write(json_string)
 
 for filename in os.listdir(os.getcwd()):
+    cwd = os.path.abspath(os.path.dirname(__file__))
+    os.chdir(cwd)
+    os.chdir('..')
+    os.chdir('dataset')
+
     # Load the JSON file
     with open(filename, 'r') as file:
         data = json.load(file)
