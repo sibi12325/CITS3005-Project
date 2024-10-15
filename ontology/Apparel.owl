@@ -3,10 +3,10 @@
          xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
          xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
          xmlns:owl="http://www.w3.org/2002/07/owl#"
-         xml:base="http://example.org/keuring_guide.owl"
-         xmlns="http://example.org/keuring_guide.owl#">
+         xml:base="http://example.org/ontologies.owl"
+         xmlns="http://example.org/ontologies.owl#">
 
-<owl:Ontology rdf:about="http://example.org/keuring_guide.owl"/>
+<owl:Ontology rdf:about="http://example.org/ontologies.owl"/>
 
 <owl:ObjectProperty rdf:about="#has_step"/>
 
