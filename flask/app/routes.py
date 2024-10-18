@@ -16,7 +16,7 @@ def query():
 		try:
 			result = g.query(f"""{query_input}""")
 			result = result.serialize(format="csv")
-			result = result.decode("utf-8")  # Decode from bytes to string
+			result = result.decode("utf-8")
 		except:
 			result = "Query is not valid"
 	return render_template('index.html', query=query_input, graph=result)
@@ -38,3 +38,44 @@ def update():
 	query_input = request.form.get('update')
 	result = "Update doesnt work yet"
 	return render_template('index.html', query=query_input, graph=result)
+
+@app.route('/addRelation', methods=['POST'])
+def addRelation():
+	query_input = request.form.get('relation')
+
+	try:
+		result = g.query(query_input)
+		for triple in result:
+			g.add(triple)
+		
+		result = result.serialize(format="csv")
+		result = result.decode("utf-8")
+	except:
+		result = "Construct Query is not valid"
+	
+	return render_template('index.html', query=query_input, graph=result)
+
+
+"""
+PREFIX : <http://example.org/ontologies.owl#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+CONSTRUCT {
+        :Guide_100110 a :Guide ;
+            a owl:NamedIndividual ;
+			:has_category "Cuisinart Mini-Prep DLC-2A"^^xsd:string ;
+			:has_guidid 100110 ;
+			:has_step :Step_185161,
+						:Step_186898,
+						:Step_186906,
+						:Step_186911 ;
+			:has_title "SIBI MOOTHEDAN"^^xsd:string ;
+			:has_url "https://www.ifixit.com/Guide/SIBI+MOOTHEDAN/100110"^^xsd:string ;
+			:uses_tool :Tool_phillips_screwdriver,
+						:Tool_spudger .
+    }
+    WHERE {
+
+    }
+"""
