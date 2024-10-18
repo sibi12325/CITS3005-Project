@@ -1,10 +1,16 @@
 from rdflib import Graph
 from rdflib import URIRef, BNode, Literal
 from rdflib.namespace import FOAF, RDF
+import os
+
+cwd = os.path.abspath(os.path.dirname(__file__))
+os.chdir(cwd)
+os.chdir('..')
+os.chdir('knowledge_graphs')
 
 g = Graph()
 
-g.parse('C:/Users/sibim/OneDrive - UWA/CITS3005/CITS3005-Project/knowledge_graphs/Appliance.owl')
+g.parse('Appliance.owl')
 
 query1 = """
     PREFIX : <http://example.org/ontologies.owl#>

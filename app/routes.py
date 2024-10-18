@@ -1,11 +1,11 @@
 from flask import render_template, request
 from app import app
-from .graph import graph, g
+from .query import g
 
 @app.route('/')
 def index():
 	result = "Result will be displayed here"
-	return render_template('index.html', graph=graph, result=result)
+	return render_template('index.html', graph=g.serialize(), result=result)
 
 @app.route('/query', methods=['POST'])
 def query():
