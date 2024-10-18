@@ -5,7 +5,7 @@ import os
 
 cwd = os.path.abspath(os.path.dirname(__file__))
 os.chdir(cwd)
-os.chdir('..')
+os.chdir('flask')
 os.chdir('knowledge_graphs')
 
 g = Graph()

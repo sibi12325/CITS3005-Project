@@ -3,6 +3,7 @@ import os
 cwd = os.path.abspath(os.path.dirname(__file__))
 os.chdir(cwd)
 os.chdir('..')
+os.chdir('..')
 os.chdir('dataset')
 
 for filename in os.listdir(os.getcwd()):
