@@ -12,16 +12,14 @@ In a terminal run:
  * `python -m pip` or `pip` to confirm pip is funtioning
  * `python -m venv` to check python's inbuilt environment manager is functioning
 
-#### 2. Clone the Repository
-The simplest way to clone the repo is using VSCode, in the IDE on the "welcome" page there is an option to "Clone Git Repository",
-Click it and then paste in the link for the repo: `https://github.com/sibi12325/CITS3005-Project.git`, then you'll be prompted to sign into you github account.
+#### 2. Open the flask directory
+Enter the flask directory before creating any virtual environments.
 
 #### 3. Create and Activate Your Virtual Environment with venv
  1. Run `python3 -m venv venv` in the terminal to create your virtual environment. 
  2. Activate your venv using `.\venv\Scripts\activate` for windows or with `source venv/bin/activate` if using a linux based command line - you will need to activate the environment whenever you plan to run code within the project.
  3. Install any packages in the virtual environment:
      * On initial setup dependancies can be installed from the `requirements.txt` file by executing `pip install -r requirements.txt` __within the virtual environment__ - `(venv)` should be visible in your command line
-     * If another package needs to be installed use `pip install` as normal within the venv, then once any changes are made save them by updating the requirements.txt file using `pip freeze > requirements.txt`
 
 #### 4. Run the Flask Application
 Now that all the setup is completed you are ready to code and to run the application. This can be done with `flask run` in the terminal
