@@ -46,7 +46,6 @@ def query():
 
 # The namespace to be used to add/remove from the database
 EX = Namespace("http://example.org/ontologies.owl#")
-EX_str = "http://example.org/ontologies.owl#"
 
 # Add all valid subject classes and their respective properties
 valid_subject_classes = {"Guide": ["has_title", "has_guidid", "has_step", "has_url", "uses_tool"]}
@@ -119,43 +118,13 @@ def remove():
       
 	# Retrieve and prepare inputs for removal
 	subject, predicate, object = query_input.split(',')
+	subject = EX[subject.strip()]
+	predicate = EX[predicate.strip()]
 
+	# Try and remove otherwise report error
 	try:
-		result = g.query(
-				   f"""
-					SELECT ?subject ?predicate ?object 
-					WHERE {{ 
-						?subject ?predicate ?object. 
-						FILTER(?object = {object}) 
-					}}
-					"""
-		)
-		result = result.serialize(format="csv")
-		result = result.decode("utf-8")
-
-		# Remove the variable names (headers formed from csv conversion)
-		for i, val in enumerate(result):
-			print(val)
-
-			
-		print("*"*100)
-		print("I AM HERE")
-		print("*"*100)
-
-		print(result)
-
-		subject, predicate, object = result.split(' ')
-
-		try:
-			print("*"*100)
-			print("I AM HERE")
-			print("*"*100)
-			g.remove((subject, predicate, object))
-		except Exception as e:
-			return render_template('index.html', query=query_input, graph=f"Invalid removal for triple, error : {e}")
-
-		print(result)
+		g.remove((subject, predicate, object))
 	except Exception as e:
-		return render_template('index.html', query=query_input, graph=f"Triple was never in ontology error is : {e}")
-      
+		return render_template('index.html', query=query_input, graph=f"Invalid removal for triple, error : {e}")
+	
 	return render_template('index.html', query=query_input, graph=f"Removed ({subject},{predicate},{object})")

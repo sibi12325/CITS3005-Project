@@ -81,3 +81,32 @@ print("All guides that have potentialy hazardous steps")
 for row in g.query(query4):
     print(f"Potential hazard at Guide {row[0].split('#')[1]} on step : {row[1].split('#')[1]}")
 print('\n')
+
+# Query to find the number of steps in a guide
+query5 = """
+    SELECT ?guide (COUNT(?step) AS ?stepCount)
+    WHERE {
+    ?guide a :Guide;
+        :has_step ?step .
+    }
+    GROUP BY ?guide
+"""
+
+print("Each guide and the number of steps in each")
+for row in g.query(query5):
+    print(f"Guide : {row[0]} Step Count : {row[1]}")
+print('\n')
+
+query6 = """
+    SELECT ?guide (COUNT(?tool) AS ?toolCount)
+    WHERE {
+    ?guide a :Guide;
+        :uses_tool ?tool .
+    }
+    GROUP BY ?guide
+"""
+
+print("Each guide and the number of tools in each")
+for row in g.query(query6):
+    print(f"Guide : {row[0]} Tool Count : {row[1]}")
+print('\n')
