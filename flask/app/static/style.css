@@ -1,18 +1,22 @@
 /* Navigation Links */
-.navbar-nav > a {
+.navbar-nav > a 
+{
   font-size: large;
 }
 
 /* Page Layout */
-.content {
+.content 
+{
   padding-top: 1em;
   min-height: calc(79vh - 1rem);
 }
 
-  pre {
-      background-color: #f5f5f5;
-      padding: 10px;
-      border-radius: 8px;
-      white-space: pre-wrap; /* Ensures long lines are wrapped */
-      word-wrap: break-word;
+/* Design for the graph and prev query inputs */
+  pre 
+  {
+    background-color: #f5f5f5;
+    padding: 10px;
+    border-radius: 8px;
+    white-space: pre-wrap;
+    word-wrap: break-word;
   }

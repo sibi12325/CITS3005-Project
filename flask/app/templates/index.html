@@ -1,13 +1,14 @@
 {% extends "base.html" %}
-
 {% block content %}
 
+<!--Print the previous query at the top of the page-->
 {% if query %}
 <div style="text-align: center;">
     <pre>Previous Input : {{ query }}</pre>
 </div>
 {% endif %}
 
+<!--The query form-->
 <div style="padding-top: 5%">
     <h1 style="text-align: center; padding-bottom: 1%;">Query</h1>
     <form action="/query" method="post">
@@ -20,7 +21,8 @@
     </form>
 </div>
 
-<div style="padding-top: 5%; padding-bottom: 5%; width: 33%; display: inline-block;">
+<!--The add form-->
+<div style="padding-top: 5%; padding-bottom: 5%; width: 40%; display: inline-block;">
     <h1 style="text-align: center; padding-bottom: 1%;">Add to Graph</h1>
     <form action="/add" method="post">
         <div class="form-group">
@@ -32,7 +34,8 @@
     </form>
 </div>
 
-<div style="padding-top: 5%; padding-bottom: 5%;text-align: center; width: 33%; display: inline-block;">
+<!--The remove form-->
+<div style="padding-top: 5%; padding-bottom: 5%; width: 40%; float: right;">
     <h1 style="text-align: center; padding-bottom: 1%;">Remove from Graph</h1>
     <form action="/remove" method="post">
         <div class="form-group">
@@ -44,18 +47,7 @@
     </form>
 </div>
 
-<div style="padding-top: 5%; padding-bottom: 5%; text-align: right; width: 33%; display: inline-block;">
-    <h1 style="text-align: center; padding-bottom: 1%;">Update Graph</h1>
-    <form action="/update" method="post">
-        <div class="form-group">
-        <input type="text" class="form-control" id="update" name="update" aria-describedby="form-text" placeholder="Update Graph">
-        </div>
-        <div style="padding-top: 1%; text-align: center;">
-            <button type="submit" class="btn btn-primary">Update</button>
-        </div>
-    </form>
-</div>
-
+<!--Print the result at the bottom of the screen-->
 {% if graph %}
 <div>
     <pre style="text-align: left;">{{ graph }}</pre>

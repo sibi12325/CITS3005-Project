@@ -1,14 +1,19 @@
+# Import all used libraries
 import json
 import os
 from owlready2 import *
 
+# Navigate to where the ifixit json files are located
 cwd = os.path.abspath(os.path.dirname(__file__))
 os.chdir(cwd)
 os.chdir('..')
 os.chdir('..')
 os.chdir('dataset')
 
+# Convert each json file into an owl knowledge graph and put in knowledge graphs directory
 for filename in os.listdir(os.getcwd()):
+
+    # Re-navigate to the json file directory to process next file
     cwd = os.path.abspath(os.path.dirname(__file__))
     os.chdir(cwd)
     os.chdir('..')
@@ -71,6 +76,7 @@ for filename in os.listdir(os.getcwd()):
                     if tool_instance:
                         step.uses_tool.append(tool_instance)
 
+    # Navigate to knowledge graphs directory
     os.chdir('..')
     os.chdir('knowledge_graphs')
 
