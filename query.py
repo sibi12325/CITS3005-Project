@@ -13,11 +13,7 @@ g = Graph()
 g.parse('Appliance.owl')
 
 query1 = """
-    PREFIX : <http://example.org/ontologies.owl#>
-    PREFIX owl: <http://www.w3.org/2002/07/owl#>
-    PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
-
-    SELECT ?guide ?title
+    SELECT ?title
     WHERE { 
         ?guide a :Guide ;
             :has_title ?title ;
@@ -25,18 +21,13 @@ query1 = """
     }
     GROUP BY ?guide ?title
     HAVING (COUNT(?step) > 6)
-
 """
 print('Procedures that include more than 6 steps: ')
 for row in g.query(query1):
-    print(row[1])
+    print(row[0])
 print('\n')
 
 query2 = """
-    PREFIX : <http://example.org/ontologies.owl#>
-    PREFIX owl: <http://www.w3.org/2002/07/owl#>
-    PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
-
     SELECT ?tool
     WHERE { 
         ?guide a :Guide ;
@@ -53,11 +44,7 @@ print('\n')
 
 
 query3 = """
-    PREFIX : <http://example.org/ontologies.owl#>
-    PREFIX owl: <http://www.w3.org/2002/07/owl#>
-    PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
-
-    SELECT ?guide ?title
+    SELECT ?title
     WHERE {
     ?guide rdf:type :Guide;
         :has_title ?title.
@@ -72,14 +59,10 @@ query3 = """
 
 print('All procedures that include a tool that is never mentioned in the procedure steps:')
 for row in g.query(query3):
-    print(row[1])
+    print(row[0])
 print('\n')
 
 query4 = """
-    PREFIX : <http://example.org/ontologies.owl#>
-    PREFIX owl: <http://www.w3.org/2002/07/owl#>
-    PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
-
     SELECT ?guide ?step
     WHERE {
 
