@@ -10,5 +10,3 @@ os.chdir('knowledge_graphs')
 g = Graph()
 
 g.parse('Appliance.owl')
-
-graph = g.serialize()

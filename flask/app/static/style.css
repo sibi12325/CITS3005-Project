@@ -8,3 +8,11 @@
   padding-top: 1em;
   min-height: calc(79vh - 1rem);
 }
+
+  pre {
+      background-color: #f5f5f5;
+      padding: 10px;
+      border-radius: 8px;
+      white-space: pre-wrap; /* Ensures long lines are wrapped */
+      word-wrap: break-word;
+  }

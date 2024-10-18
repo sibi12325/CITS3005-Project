@@ -2,9 +2,9 @@
 
 {% block content %}
 
-{% if graph %}
+{% if query %}
 <div style="text-align: center;">
-    <p2>{{ graph | safe}}</p2>
+    <pre>{{ query }}</pre>
 </div>
 {% endif %}
 
@@ -56,6 +56,10 @@
     </form>
 </div>
 
-<h3 style="text-align: left;">{{ result}}</h3>
+{% if graph %}
+<div>
+    <pre style="text-align: left;">{{ graph }}</pre>
+</div>
+{% endif %}
 
 {% endblock %}
