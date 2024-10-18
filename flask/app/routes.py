@@ -120,18 +120,13 @@ def remove():
 	# Retrieve and prepare inputs for removal
 	subject, predicate, object = query_input.split(',')
 
-	if isinstance(object, Literal):
-		query_object = '"' + str(object) + '"'
-	else:
-		query_object = '<' + str(object) + '>'
-
 	try:
 		result = g.query(
 				   f"""
 					SELECT ?subject ?predicate ?object 
 					WHERE {{ 
 						?subject ?predicate ?object. 
-						FILTER(?object = {query_object}) 
+						FILTER(?object = {object}) 
 					}}
 					"""
 		)
