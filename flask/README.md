@@ -26,7 +26,7 @@ Now that all the setup is completed you are ready to code and to run the applica
 
 ## Group Members:
 
-__Sibi Moothedan__ (23615908) \
+__Sibi Moothedan__ (23615908) 
 Email: 23615908@student.uwa.edu.au \
 
 __Daniel Le__ (23625105) \
